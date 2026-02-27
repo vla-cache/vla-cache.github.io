@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="VLA-Cache">
-    <meta name="keywords" content="VLA-Cache: Towards Efficient Vision-Language-Action Model via Adaptive Token Caching in Robotic Manipulation">
+    <meta name="keywords" content="VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VLA-Cache</title>
 
@@ -28,7 +28,7 @@
 
     <meta property="og:site_name" content="VLA-Cache" />
     <meta property="og:type" content="video.other" />
-    <meta property="og:title" content="VLA-Cache: Towards Efficient Vision-Language-Action Model via Adaptive Token Caching in Robotic Manipulation" />
+    <meta property="og:title" content="VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching" />
     <meta property="og:description" content="by Siyu Xu, Yunke Wang, Chenghao Xia, Dihao Zhu, Tao Huang, Chang Xu" />
     <meta property="og:url" content="https://vla-cache.github.io/" />
 
@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">VLA-Cache: Towards Efficient Vision-Language-Action Model via Adaptive Token Caching in Robotic Manipulation</h1>
+                        <h1 class="title is-1 publication-title">VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching [NeurIPS 2025] </h1>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
                 <a href="https://siyuxu.com/">Siyu Xu</a>&nbsp;&nbsp;
@@ -55,8 +55,16 @@
 
               </span>
                         </div>
-                        <div class="column">
-                            <image src="static/images/usyd-logo.png" style="width: 20%;"></image>
+                        <div class="columns is-centered">
+                            <div class="column">
+                                <image src="static/images/usyd-logo.png" style="width: 40%;"></image>
+                            </div>
+                            <div class="column">
+                                <image src="static/images/sjtu.png" style="width: 20%;"></image>
+                            </div>
+                            <div class="column">
+                                <image src="static/images/neurips.png" style="width: 40%;"></image>
+                            </div>
                         </div>
                         <!-- <div class="is-size-4 publication-authors">
               Preprint
@@ -197,12 +205,13 @@
                     <div class="content has-text-justified has-text-centered">
                         <img src="static/images/method.png" , style="width: 100%;">
                         <p>
-                            Vision-Language-Action (VLA) model can process instructions and visual perception to directly generate actions as output in an end-to-end fashion due to its strong multi-modal reasoning capabilities. While the performance of VLA models is promising, their
-                            computational cost can be substantial. This raises challenge for applying them on robotics tasks, which requires real-time decision-making to respond quickly to environmental changes. Since robotic control involves sequential
-                            decision-making, the visual input often exhibits minimal variation between successive steps. A natural idea is to reuse the computational results of unchanged visual tokens from the last step. Motivated by this idea, we propose
-                            VLA-Cache, an efficient vision-language-action model. VLA-Cache incorporates a token-selection mechanism that compares the visual input at each step with the input from the previous step, adaptively identifying visual tokens
-                            with minimal changes. The computational results for these unchanged tokens are then reused in subsequent steps via KV-cache, thereby significantly improving the efficiency of the VLA-Cache model. Experimental results on both
-                            simulation (e.g., LIBERO benchmark and SIMPLER) and real-world robot valid VLA-Cache can achieve practical acceleration with minimal sacrifice in success rate.
+                            Vision-Language-Action (VLA) models have demonstrated strong multi-modal reasoning capabilities, enabling direct action generation from visual perception and language instructions in an end-to-end manner. However, their substantial computational cost
+                            poses a challenge for real-time robotic control, where rapid decision-making is essential. This paper introduces VLA-Cache, a training-free inference acceleration method that reduces computational overhead by adaptively caching
+                            and reusing static visual tokens across frames. Exploiting the temporal continuity in robotic manipulation, VLA-Cache identifies minimally changed tokens between adjacent frames and reuses their cached key-value representations,
+                            thereby circumventing redundant computations. Additionally, to maintain action precision, VLA-Cache selectively re-computes task-relevant tokens that are environmentally sensitive, ensuring the fidelity of critical visual information.
+                            To further optimize efficiency, we introduce a layer adaptive token reusing strategy that dynamically adjusts the reuse ratio based on attention concentration across decoder layers, prioritizing critical tokens for recomputation.
+                            Extensive experiments on two simulation platforms (LIBERO and SIMPLER) and a real-world robotic system demonstrate that VLA-Cache achieves up to 1.7x speedup in CUDA latency and a 15% increase in control frequency, with negligible
+                            loss on task success rate.
                         </p>
                     </div>
                 </div>
@@ -430,7 +439,7 @@
                         <div class="container is-max-desktop content">
                             <h2 class="title">BibTeX</h2>
                             <pre><code>@article{xu2025vla,
-  title={VLA-Cache: Towards Efficient Vision-Language-Action Model via Adaptive Token Caching in Robotic Manipulation},
+  title={VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching},
   author={Xu, Siyu and Wang, Yunke and Xia, Chenghao and Zhu, Dihao and Huang, Tao and Xu, Chang},
   journal={arXiv preprint arXiv:2502.02175},
   year={2025}
